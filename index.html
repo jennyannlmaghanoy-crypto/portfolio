@@ -1,190 +1,446 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jenny Ann Maghanoy | Tech-Savvy Virtual Assistant</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Jenny Ann L. Maghanoy | Computer Engineering Portfolio</title>
+    <!-- Google Fonts for Tech/Terminal Aesthetics -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #0B0F19;
+            --bg-card: #131A26;
+            --bg-terminal: #070A10;
+            --accent-cyan: #00F0FF;
+            --accent-blue: #3A86FF;
+            --text-primary: #E2E8F0;
+            --text-secondary: #94A3B8;
+            --border-color: #1E293B;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        /* Top System Banner Header */
+        header {
+            background: linear-gradient(135deg, var(--bg-card) 0%, #1A2333 100%);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--accent-cyan);
+            border-radius: 8px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "[ SYSTEM: ACTIVE ]";
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.8rem;
+            color: var(--accent-cyan);
+            letter-spacing: 1px;
+        }
+
+        .header-title h1 {
+            font-family: 'Fira Code', monospace;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #FFFFFF;
+            margin-bottom: 5px;
+        }
+
+        .header-title h1 span {
+            color: var(--accent-cyan);
+        }
+
+        .header-tagline {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .contact-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px;
+        }
+
+        .contact-bar a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .contact-bar a:hover {
+            color: #FFFFFF;
+            text-decoration: underline;
+        }
+
+        /* Split Dashboard Main Layout */
+        .dashboard-body {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .dashboard-body {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Dashboard Modules / Sections */
+        .module {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .module-title {
+            font-family: 'Fira Code', monospace;
+            font-size: 1.1rem;
+            color: var(--accent-cyan);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        /* Summary Terminal Look */
+        .terminal-block {
+            background-color: var(--bg-terminal);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            position: relative;
+        }
+
+        .terminal-prompt::before {
+            content: "jann@portfolio:~$ ";
+            color: var(--accent-cyan);
+        }
+
+        /* Skills Matrix Badges */
+        .skills-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .skills-category h4 {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .badge {
+            background-color: #1E293B;
+            border: 1px solid #334155;
+            color: var(--text-primary);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .badge.highlight {
+            border-color: var(--accent-cyan);
+            background-color: rgba(0, 240, 255, 0.05);
+            color: var(--accent-cyan);
+        }
+
+        /* Experience Timeline Layout */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 20px;
+            border-left: 2px solid var(--border-color);
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -6px;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            background-color: var(--bg-main);
+            border: 2px solid var(--accent-cyan);
+            border-radius: 50%;
+        }
+
+        .job-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #FFFFFF;
+        }
+
+        .job-meta {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.8rem;
+            color: var(--accent-blue);
+            margin-bottom: 10px;
+        }
+
+        .job-details {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            padding-left: 15px;
+        }
+
+        .job-details li {
+            margin-bottom: 6px;
+        }
+
+        /* Hardware Specifications Screen */
+        .spec-row {
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            padding: 8px 0;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .spec-label {
+            color: var(--text-secondary);
+        }
+
+        .spec-value {
+            color: var(--text-primary);
+            text-align: right;
+        }
+
+        .pulse-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: #10B981;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #10B981;
+        }
+    </style>
 </head>
-<body class="bg-slate-900 text-slate-100 font-sans antialiased selection:bg-blue-500 selection:text-white">
+<body>
 
-    <!-- Navbar -->
-    <nav class="fixed top-0 left-0 w-full bg-slate-900/80 backdrop-blur-md border-b border-slate-800 z-50 px-6 py-4">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <a href="#" class="text-xl font-bold tracking-wider text-blue-400">AM<span class="text-white">.</span></a>
-            <div class="space-x-6 text-sm font-medium text-slate-300">
-                <a href="#about" class="hover:text-blue-400 transition-colors">About</a>
-                <a href="#services" class="hover:text-blue-400 transition-colors">Services & Tools</a>
-                <a href="#projects" class="hover:text-blue-400 transition-colors">Projects</a>
-                <a href="#contact" class="hover:text-blue-400 transition-colors">Contact</a>
+    <div class="dashboard-container">
+        
+        <!-- Header Console Banner -->
+        <header>
+            <div class="header-title">
+                <h1>JENNY ANN L. MAGHANOY<span>()</span></h1>
             </div>
-        </div>
-    </nav>
+            <div class="header-tagline">
+                Computer Engineering Graduate & Technical Operations Specialist
+            </div>
+            <div class="contact-bar">
+                <div>📍 Cebu City, Philippines</div>
+                <div>📧 <a href="mailto:jennyannlmaghanoy@gmail.com">jennyannlmaghanoy@gmail.com</a></div>
+                <div>📞 +63 961 638 1418</div>
+                <div>🌐 <a href="https://www.linkedin.com/in/jenny-ann-maghanoy-132461329" target="_blank">LinkedIn Profile</a></div>
+            </div>
+        </header>
 
-    <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center pt-20 px-6 bg-radial from-slate-800 to-slate-900">
-        <div class="max-w-3xl text-center space-y-6">
-            <span class="text-blue-400 font-semibold tracking-widest uppercase text-xs bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20">Available for Work</span>
-            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white">
-                Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-teal-400"> Jenny Ann Maghanoy</span>
-            </h1>
-            <p class="text-lg md:text-xl text-slate-400 font-medium max-w-2xl mx-auto leading-relaxed">
-                A Computer Engineering Graduate leveraging technical logic, precision data coordination, and digital optimization as a dedicated Virtual Assistant.
-            </p>
-            <div class="pt-4">
-                <a href="#contact" class="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-500 text-white font-medium px-6 py-3 rounded-lg shadow-lg shadow-blue-600/20 transition-all transform hover:-translate-y-0.5">
-                    Let's Work Together <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-24 px-6 max-w-5xl mx-auto border-t border-slate-800/60">
-        <div class="grid md:grid-cols-3 gap-12 items-start">
-            <div class="md:col-span-1">
-                <h2 class="text-2xl font-bold text-white tracking-tight border-l-4 border-blue-500 pl-4">About Me</h2>
-            </div>
-            <div class="md:col-span-2 space-y-6 text-slate-400 leading-relaxed text-base">
-                <p>
-                    I bridge the gap between technical complexity and organized business operations. With a strong academic background in <strong class="text-slate-200 font-semibold">Computer Engineering</strong>, I bring analytical problem-solving, structural logic, and hardware-software comfort to everyday administrative and digital operations.
-                </p>
-                <p>
-                    My professional focus centers on data entry precision, CRM management, content workflows, and technical administrative support. I highly value continuous learning and adapting swiftly to new tech ecosystems, aiming to optimize workflows and inject efficiency into growing businesses.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services & Tools Section -->
-    <section id="services" class="py-24 px-6 bg-slate-950/40 border-t border-slate-800/60">
-        <div class="max-w-5xl mx-auto space-y-12">
-            <div class="text-center md:text-left">
-                <h2 class="text-2xl font-bold text-white tracking-tight border-l-4 border-blue-500 pl-4 inline-block">Services & Core Tech</h2>
-                <p class="text-slate-400 text-sm mt-2">Specialized capabilities driven by software engineering principles.</p>
-            </div>
+        <!-- Main Workspace split dashboard layout -->
+        <div class="dashboard-body">
             
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- Card 1 -->
-                <div class="bg-slate-900/60 border border-slate-800/80 p-6 rounded-xl hover:border-blue-500/40 transition-all group">
-                    <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400 mb-4 group-hover:bg-blue-600 group-hover:text-white transition-all">
-                        <i class="fa-solid fa-database"></i>
-                    </div>
-                    <h3 class="text-lg font-semibold text-white mb-2">Data Management</h3>
-                    <p class="text-sm text-slate-400 mb-4">Accurate, highly organized data entry, structural encoding, and operational spreadsheet management.</p>
-                    <div class="flex flex-wrap gap-2 text-xs font-medium text-slate-300">
-                        <span class="bg-slate-800 px-2 py-1 rounded">Airtable</span>
-                        <span class="bg-slate-800 px-2 py-1 rounded">Excel</span>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="bg-slate-900/60 border border-slate-800/80 p-6 rounded-xl hover:border-blue-500/40 transition-all group">
-                    <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400 mb-4 group-hover:bg-blue-600 group-hover:text-white transition-all">
-                        <i class="fa-solid fa-headset"></i>
-                    </div>
-                    <h3 class="text-lg font-semibold text-white mb-2">CRM & Operations</h3>
-                    <p class="text-sm text-slate-400 mb-4">Handling customer relations, administrative pipelines, and client data tracking cleanly.</p>
-                    <div class="flex flex-wrap gap-2 text-xs font-medium text-slate-300">
-                        <span class="bg-slate-800 px-2 py-1 rounded">Salesforce</span>
-                        <span class="bg-slate-800 px-2 py-1 rounded">Customer Support</span>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="bg-slate-900/60 border border-slate-800/80 p-6 rounded-xl hover:border-blue-500/40 transition-all group">
-                    <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400 mb-4 group-hover:bg-blue-600 group-hover:text-white transition-all">
-                        <i class="fa-solid fa-clapperboard"></i>
-                    </div>
-                    <h3 class="text-lg font-semibold text-white mb-2">Digital Content Assets</h3>
-                    <p class="text-sm text-slate-400 mb-4">Creating visually impactful brand layouts, marketing presentations, and structured video assembly.</p>
-                    <div class="flex flex-wrap gap-2 text-xs font-medium text-slate-300">
-                        <span class="bg-slate-800 px-2 py-1 rounded">Canva</span>
-                        <span class="bg-slate-800 px-2 py-1 rounded">CapCut</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-24 px-6 max-w-5xl mx-auto border-t border-slate-800/60">
-        <div class="space-y-12">
-            <div>
-                <h2 class="text-2xl font-bold text-white tracking-tight border-l-4 border-blue-500 pl-4">Technical Projects</h2>
-                <p class="text-slate-400 text-sm mt-2">A showcase of system infrastructure and programming work built during my engineering background.</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Project 1 -->
-                <div class="bg-slate-900/40 border border-slate-800/60 rounded-xl overflow-hidden hover:border-slate-700 transition-all flex flex-col justify-between">
-                    <div class="p-6 space-y-3">
-                        <span class="text-xs font-semibold uppercase text-teal-400 tracking-wider">Web System & Databases</span>
-                        <h3 class="text-xl font-bold text-white">Automated Clinic Appointment & Medical Records System</h3>
-                        <p class="text-sm text-slate-400 leading-relaxed">
-                            Designed and engineered an automated system platform aimed at streamlining clinical schedules and digitization of highly secure patient medical archives.
+            <!-- LEFT COLUMN: Profile info and logs -->
+            <div class="main-content-column">
+                
+                <!-- Terminal block overview -->
+                <div class="module">
+                    <div class="module-title">⚙️ [PROFILE_OVERVIEW.LOG]</div>
+                    <div class="terminal-block">
+                        <p class="terminal-prompt" style="margin-bottom: 10px;">cat summary.txt</p>
+                        <p style="color: var(--text-primary); line-height: 1.7;">
+                            Logic-driven Professional with a background in Computer Engineering and technical operations, specializing in high-volume Salesforce CRM management and digital coordination. Reduced average technical resolution times by 25% through proactive team communication via Slack and the development of 10+ Standard Operating Procedures (SOPs). Known for analytical problem-solving, data integrity, and seamless execution of detail-oriented tasks.
                         </p>
                     </div>
-                    <div class="p-6 pt-0 flex flex-wrap gap-2 text-xs font-medium text-slate-400">
-                        <span class="bg-slate-800/80 px-2 py-1 rounded">Fullstack Development</span>
-                        <span class="bg-slate-800/80 px-2 py-1 rounded">Database Architecture</span>
+                </div>
+
+                <!-- Professional Deployments / Experience -->
+                <div class="module">
+                    <div class="module-title">📈 [DEPLOYMENT_HISTORY / WORK_EXPERIENCE]</div>
+                    <div class="timeline">
+                        
+                        <!-- Concentrix -->
+                        <div class="timeline-item">
+                            <div class="job-title">Technical Support & Financial Software Specialist</div>
+                            <div class="job-meta">Concentrix (US-Based Financial Software) | Jul 2025 - Jan 2026</div>
+                            <ul class="job-details">
+                                <li>Managed high-volume client records within Salesforce, ensuring real-time data integrity and 100% accuracy in case logs.</li>
+                                <li>Escalated complex technical challenges using Slack and Salesforce integrations, cutting high-priority resolution times by 25%.</li>
+                                <li>Designed and deployed 10+ internal Standard Operating Procedures (SOPs) that reduced client troubleshooting cycles by 20 minutes per ticket.</li>
+                                <li>Aggregated patterns via CRM query tools to write 3 new troubleshooting playbooks.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Freelance -->
+                        <div class="timeline-item">
+                            <div class="job-title">Digital Media & Design Assistant</div>
+                            <div class="job-meta">Freelance / Remote Support | Jun 2022 - Jul 2023</div>
+                            <ul class="job-details">
+                                <li>Managed incoming pipeline communications via email and Instagram, standardizing a clean brand identity.</li>
+                                <li>Engineered 20+ dynamic marketing visual assets on a weekly basis using Canva to preserve asset alignment.</li>
+                                <li>Triaged client inbound lines under rapid execution matrixes, trimming out response delays down below 30 minutes.</li>
+                            </ul>
+                        </div>
+
                     </div>
                 </div>
 
-                <!-- Project 2 -->
-                <div class="bg-slate-900/40 border border-slate-800/60 rounded-xl overflow-hidden hover:border-slate-700 transition-all flex flex-col justify-between">
-                    <div class="p-6 space-y-3">
-                        <span class="text-xs font-semibold uppercase text-blue-400 tracking-wider">Data Organization</span>
-                        <h3 class="text-xl font-bold text-white">Barangay Information System</h3>
-                        <p class="text-sm text-slate-400 leading-relaxed">
-                            Developed a local information ledger infrastructure engineered to record, optimize, and organize community demographics and paperwork pipelines seamlessly.
-                        </p>
-                    </div>
-                    <div class="p-6 pt-0 flex flex-wrap gap-2 text-xs font-medium text-slate-400">
-                        <span class="bg-slate-800/80 px-2 py-1 rounded">System Engineering</span>
-                        <span class="bg-slate-800/80 px-2 py-1 rounded">Data Management</span>
+            </div>
+
+            <!-- RIGHT COLUMN: Hardware and Modules -->
+            <div class="sidebar-column">
+                
+                <!-- Technical Stack Matrix -->
+                <div class="module">
+                    <div class="module-title">🛠️ [TECH_STACK.CFG]</div>
+                    <div class="skills-grid">
+                        
+                        <div class="skills-category">
+                            <h4>Core Strengths</h4>
+                            <div class="badge-container">
+                                <span class="badge highlight">Logic-Based Tasks</span>
+                                <span class="badge highlight">Data Integrity</span>
+                                <span class="badge">Detail-Oriented Tasks</span>
+                                <span class="badge">SOP Engineering</span>
+                            </div>
+                        </div>
+
+                        <div class="skills-category">
+                            <h4>CRM & Operations</h4>
+                            <div class="badge-container">
+                                <span class="badge highlight">Salesforce CRM</span>
+                                <span class="badge">Airtable</span>
+                                <span class="badge">Notion</span>
+                                <span class="badge">Slack</span>
+                                <span class="badge">Email Triage</span>
+                            </div>
+                        </div>
+
+                        <div class="skills-category">
+                            <h4>Automation & Web</h4>
+                            <div class="badge-container">
+                                <span class="badge">Basic Web Dev</span>
+                                <span class="badge">Apps Script</span>
+                                <span class="badge">Zapier</span>
+                                <span class="badge">Make.com</span>
+                                <span class="badge">SEO Schema</span>
+                            </div>
+                        </div>
+
+                        <div class="skills-category">
+                            <h4>AI & Media Tools</h4>
+                            <div class="badge-container">
+                                <span class="badge">ChatGPT</span>
+                                <span class="badge">Gemini</span>
+                                <span class="badge">Canva</span>
+                                <span class="badge">CapCut</span>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
+
+                <!-- Hardware Specifications readout panel -->
+                <div class="module">
+                    <div class="module-title">🖥️ [HARDWARE_SPECS.SYS]</div>
+                    
+                    <div class="spec-row">
+                        <span class="spec-label">Primary Rig</span>
+                        <span class="spec-value">Acer Nitro V 15</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">CPU</span>
+                        <span class="spec-value">AMD Ryzen 5 7535HS</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Memory</span>
+                        <span class="spec-value">16GB DDR5 RAM</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">GPU</span>
+                        <span class="spec-value">NVIDIA RTX 2050/3050</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Backup Rig</span>
+                        <span class="spec-value">Acer Laptop (Core i5 8th Gen)</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Network Link</span>
+                        <span class="spec-value">Smart 5G Mobile Hotspot</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Power Backup</span>
+                        <span class="spec-value">Dedicated Workspace Status <span class="pulse-dot"></span></span>
+                    </div>
+                </div>
+
+                <!-- Education Node Module -->
+                <div class="module">
+                    <div class="module-title">🎓 [ACADEMIC_CREDENTIAL]</div>
+                    <div style="font-size: 0.95rem; font-weight: 600; color: #FFFFFF;">BS in Computer Engineering</div>
+                    <div style="font-size: 0.85rem; color: var(--accent-blue); font-family: 'Fira Code', monospace; margin-bottom: 5px;">University of Cebu</div>
+                    <div style="font-size: 0.85rem; color: var(--text-secondary);">Cebu City, Philippines</div>
+                </div>
+
             </div>
+
         </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 px-6 bg-slate-950/60 border-t border-slate-800/60 text-center">
-        <div class="max-w-2xl mx-auto space-y-8">
-            <div class="space-y-3">
-                <h2 class="text-3xl font-extrabold text-white tracking-tight">Let's connect</h2>
-                <p class="text-slate-400 text-base max-w-md mx-auto">
-                    Looking for a highly analytical, tech-savvy VA to manage tools or optimize your data systems? Reach out anytime!
-                </p>
-            </div>
-
-            <!-- Contact Links Grid -->
-            <div class="flex flex-wrap justify-center gap-4 pt-4">
-                <a href="mailto:your-email@example.com" class="flex items-center space-x-2 bg-slate-900 border border-slate-800 hover:border-blue-500/50 hover:bg-slate-800/50 text-slate-300 hover:text-white px-4 py-3 rounded-xl transition-all">
-                    <i class="fa-solid fa-envelope text-blue-400"></i>
-                    <span class="text-sm font-medium">Email Me</span>
-                </a>
-                <!-- Update with your real links when live -->
-                <a href="https://upwork.com" target="_blank" class="flex items-center space-x-2 bg-slate-900 border border-slate-800 hover:border-blue-500/50 hover:bg-slate-800/50 text-slate-300 hover:text-white px-4 py-3 rounded-xl transition-all">
-                    <i class="fa-solid fa-briefcase text-green-400"></i>
-                    <span class="text-sm font-medium">Upwork Profile</span>
-                </a>
-                <a href="https://github.com" target="_blank" class="flex items-center space-x-2 bg-slate-900 border border-slate-800 hover:border-blue-500/50 hover:bg-slate-800/50 text-slate-300 hover:text-white px-4 py-3 rounded-xl transition-all">
-                    <i class="fa-brands fa-github text-purple-400"></i>
-                    <span class="text-sm font-medium">GitHub</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-8 text-center text-xs text-slate-600 border-t border-slate-900">
-        <p>&copy; 2026 Jenny Ann Maghanoy. Built with logic & tech.</p>
-    </footer>
+    </div>
 
 </body>
 </html>
