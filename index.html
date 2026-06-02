@@ -3,21 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ann L. Maghanoy | Computer Engineering Portfolio</title>
-    <!-- Google Fonts for Tech/Terminal Aesthetics -->
+    <title>Jenny Ann L. Maghanoy | Portfolio</title>
+    <!-- Premium Fonts: Playfair Display for Elegance, Montserrat for Clean Sans-Serif -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-main: #0B0F19;
-            --bg-card: #131A26;
-            --bg-terminal: #070A10;
-            --accent-cyan: #00F0FF;
-            --accent-blue: #3A86FF;
-            --text-primary: #E2E8F0;
-            --text-secondary: #94A3B8;
-            --border-color: #1E293B;
+            --bg-dark: #0A0A0A;
+            --bg-card: #111112;
+            --accent-gold: #D4AF37; /* Premium Gold color from image_9c4a04.png */
+            --accent-gold-hover: #F3E5AB;
+            --accent-green: #00FF66; /* Vibrant availability green */
+            --text-white: #FFFFFF;
+            --text-gray: #999999;
+            --border-dark: #222224;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Montserrat', sans-serif;
         }
 
         * {
@@ -27,420 +29,430 @@
         }
 
         body {
-            background-color: var(--bg-main);
-            color: var(--text-primary);
-            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            /* Subtle background grid pattern mimicking image_9c4a04.png */
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+            background-size: 40px 40px;
+            color: var(--text-white);
+            font-family: var(--font-sans);
             line-height: 1.6;
-            padding: 20px;
+            overflow-x: hidden;
         }
 
-        .dashboard-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
+        /* --- NAVIGATION BAR --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 6%;
+            border-bottom: 1px solid var(--border-dark);
+            background-color: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
         }
 
-        /* Top System Banner Header */
-        header {
-            background: linear-gradient(135deg, var(--bg-card) 0%, #1A2333 100%);
-            border: 1px solid var(--border-color);
-            border-left: 4px solid var(--accent-cyan);
-            border-radius: 8px;
-            padding: 30px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        header::before {
-            content: "[ SYSTEM: ACTIVE ]";
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-family: 'Fira Code', monospace;
-            font-size: 0.8rem;
-            color: var(--accent-cyan);
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 400;
             letter-spacing: 1px;
         }
 
-        .header-title h1 {
-            font-family: 'Fira Code', monospace;
-            font-size: 2.2rem;
-            font-weight: 600;
-            color: #FFFFFF;
-            margin-bottom: 5px;
+        .logo span {
+            color: var(--accent-gold);
+            font-style: italic;
         }
 
-        .header-title h1 span {
-            color: var(--accent-cyan);
-        }
-
-        .header-tagline {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-bottom: 15px;
-            font-weight: 400;
-        }
-
-        .contact-bar {
+        .nav-links {
             display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            font-family: 'Fira Code', monospace;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            border-top: 1px solid var(--border-color);
-            padding-top: 15px;
+            list-style: none;
+            gap: 30px;
         }
 
-        .contact-bar a {
-            color: var(--accent-cyan);
+        .nav-links a {
+            color: var(--text-gray);
             text-decoration: none;
-            transition: color 0.2s ease;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
 
-        .contact-bar a:hover {
-            color: #FFFFFF;
-            text-decoration: underline;
+        .nav-links a:hover {
+            color: var(--accent-gold);
         }
 
-        /* Split Dashboard Main Layout */
-        .dashboard-body {
+        .btn-hire-nav {
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            padding: 10px 22px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-decoration: none;
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .btn-hire-nav:hover {
+            background-color: var(--accent-gold);
+            color: var(--bg-dark);
+        }
+
+        /* --- HERO SPLIT CONTAINER --- */
+        .hero-container {
+            max-width: 1300px;
+            margin: 140px auto 60px auto;
+            padding: 0 4%;
             display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 20px;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 50px;
+            align-items: center;
         }
 
-        @media (max-width: 900px) {
-            .dashboard-body {
+        @media (max-width: 968px) {
+            .hero-container {
                 grid-template-columns: 1fr;
+                margin-top: 100px;
+                gap: 40px;
             }
         }
 
-        /* Dashboard Modules / Sections */
-        .module {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 25px;
-            margin-bottom: 20px;
-        }
-
-        .module-title {
-            font-family: 'Fira Code', monospace;
-            font-size: 1.1rem;
-            color: var(--accent-cyan);
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 10px;
-        }
-
-        /* Summary Terminal Look */
-        .terminal-block {
-            background-color: var(--bg-terminal);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 20px;
-            font-family: 'Fira Code', monospace;
-            font-size: 0.9rem;
-            color: var(--text-primary);
-            position: relative;
-        }
-
-        .terminal-prompt::before {
-            content: "ann@portfolio:~$ ";
-            color: var(--accent-cyan);
-        }
-
-        /* Skills Matrix Badges */
-        .skills-grid {
+        /* --- LEFT COLUMN: INTRO --- */
+        .hero-intro {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            align-items: flex-start;
         }
 
-        .skills-category {
-            margin-bottom: 5px;
-        }
-
-        .skills-category h4 {
-            font-family: 'Fira Code', monospace;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-bottom: 8px;
+        .badge-availability {
+            background-color: rgba(34, 34, 36, 0.6);
+            border: 1px solid var(--border-dark);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
             text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 30px;
+            color: #BBBBBB;
+        }
+
+        .dot-pulse {
+            width: 7px;
+            height: 7px;
+            background-color: var(--accent-green);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--accent-green);
+        }
+
+        .hero-intro h1 {
+            font-family: var(--font-serif);
+            font-size: 4rem;
+            line-height: 1.1;
+            font-weight: 400;
+            margin-bottom: 25px;
+        }
+
+        .hero-intro h1 span {
+            color: var(--accent-gold);
+            display: block;
+            font-weight: 400;
+        }
+
+        @media (max-width: 600px) {
+            .hero-intro h1 { font-size: 2.8rem; }
+        }
+
+        .hero-description {
+            color: var(--text-gray);
+            font-size: 1.05rem;
+            max-width: 580px;
+            margin-bottom: 35px;
+            line-height: 1.7;
+        }
+
+        .hero-description strong {
+            color: var(--text-white);
+            font-weight: 600;
+        }
+
+        .hero-description span.highlight-gold {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        /* Action Buttons Row */
+        .action-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-gold);
+            color: var(--bg-dark);
+            padding: 16px 35px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-decoration: none;
+            border-radius: 4px;
+            border: 1px solid var(--accent-gold);
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 93% 100%, 0 100%); /* Elegant slight cut corner */
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-gold-hover);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-white);
+            border: 1px solid var(--border-dark);
+            padding: 16px 35px;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: border-color 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text-white);
+        }
+
+        /* --- RIGHT COLUMN: FLOATING CONSOLE CARD --- */
+        .profile-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-dark);
+            border-radius: 4px;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        /* Thin subtle gold top border highlight */
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 10%;
+            width: 80%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+        }
+
+        .avatar-container {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 25px auto;
+            border-radius: 50%;
+            border: 2px solid var(--accent-gold);
+            padding: 6px;
+            background-color: var(--bg-dark);
+        }
+
+        .avatar-placeholder {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: #222; /* Replace background or drop image source directly here */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: var(--text-gray);
+        }
+
+        .profile-card h2 {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 8px;
             letter-spacing: 0.5px;
         }
 
-        .badge-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .badge {
-            background-color: #1E293B;
-            border: 1px solid #334155;
-            color: var(--text-primary);
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-family: 'Fira Code', monospace;
-        }
-
-        .badge.highlight {
-            border-color: var(--accent-cyan);
-            background-color: rgba(0, 240, 255, 0.05);
-            color: var(--accent-cyan);
-        }
-
-        /* Experience and Project Timeline Layout */
-        .timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-
-        .timeline-item {
-            position: relative;
-            padding-left: 20px;
-            border-left: 2px solid var(--border-color);
-        }
-
-        .timeline-item::before {
-            content: "";
-            position: absolute;
-            left: -6px;
-            top: 6px;
-            width: 10px;
-            height: 10px;
-            background-color: var(--bg-main);
-            border: 2px solid var(--accent-cyan);
-            border-radius: 50%;
-        }
-
-        .job-title, .project-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #FFFFFF;
-        }
-
-        .job-meta, .project-meta {
-            font-family: 'Fira Code', monospace;
-            font-size: 0.8rem;
-            color: var(--accent-blue);
-            margin-bottom: 10px;
-        }
-
-        .job-details {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            padding-left: 15px;
-        }
-
-        .job-details li {
+        .profile-subtitle {
+            font-size: 0.75rem;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 2px;
             margin-bottom: 6px;
+            font-weight: 500;
         }
 
-        /* Hardware Specifications Screen */
-        .spec-row {
+        .profile-tags {
+            font-size: 0.7rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 30px;
+        }
+
+        /* Features Matrix Blocks */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 35px;
+        }
+
+        .feature-box {
+            background-color: rgba(10, 10, 10, 0.5);
+            border: 1px solid var(--border-dark);
+            padding: 15px 5px;
+            border-radius: 4px;
+        }
+
+        .feature-icon {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .feature-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-gray);
+            font-weight: 600;
+        }
+
+        .card-status-footer {
+            border-top: 1px solid var(--border-dark);
+            padding-top: 20px;
             display: flex;
             justify-content: space-between;
-            font-family: 'Fira Code', monospace;
+            align-items: center;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-gray);
+        }
+
+        .status-active {
+            color: var(--accent-green);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* --- FLOATING WHATSAPP BUTTON --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background-color: #25D366;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
             font-size: 0.85rem;
-            padding: 8px 0;
-            border-bottom: 1px dashed var(--border-color);
-        }
-
-        .spec-label {
-            color: var(--text-secondary);
-        }
-
-        .spec-value {
-            color: var(--text-primary);
-            text-align: right;
-        }
-
-        .pulse-dot {
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            background-color: #10B981;
-            border-radius: 50%;
-            box-shadow: 0 0 8px #10B981;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 999;
         }
     </style>
 </head>
 <body>
 
-    <div class="dashboard-container">
+    <!-- Floating Messenger Element -->
+    <a href="https://wa.me/639616381418" class="whatsapp-float" target="_blank">
+        🟢 WhatsApp
+    </a>
+
+    <!-- Navigation Header Matrix -->
+    <nav>
+        <div class="logo">Jenn Ann <span>Maghanoy</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="mailto:jennyannlmaghanoy@gmail.com" class="btn-hire-nav">Hire Me</a>
+    </nav>
+
+    <!-- Interactive Hero Workspace -->
+    <div class="hero-container" id="home">
         
-        <!-- Header Console Banner -->
-        <header>
-            <div class="header-title">
-                <h1>ANN L. MAGHANOY<span>()</span></h1>
+        <!-- INTRO DUCT: CORE ATTRIBUTES -->
+        <div class="hero-intro">
+            <div class="badge-availability">
+                <div class="dot-pulse"></div> Available For Hire — Philippines
             </div>
-            <div class="header-tagline">
-                Computer Engineering Graduate & Technical Operations Specialist
-            </div>
-            <div class="contact-bar">
-                <div>📍 Cebu City, Philippines</div>
-                <div>📧 <a href="mailto:jennyannlmaghanoy@gmail.com">jennyannlmaghanoy@gmail.com</a></div>
-                <div>📞 +63 961 638 1418</div>
-                <div>🌐 <a href="https://www.linkedin.com/in/jenny-ann-maghanoy-132461329" target="_blank">LinkedIn Profile</a></div>
-            </div>
-        </header>
-
-        <!-- Main Workspace split dashboard layout -->
-        <div class="dashboard-body">
             
-            <!-- LEFT COLUMN: Profile info, Deployments, and Projects -->
-            <div class="main-content-column">
-                
-                <!-- Terminal block overview -->
-                <div class="module">
-                    <div class="module-title">⚙️ [PROFILE_OVERVIEW.LOG]</div>
-                    <div class="terminal-block">
-                        <p class="terminal-prompt" style="margin-bottom: 10px;">cat summary.txt</p>
-                        <p style="color: var(--text-primary); line-height: 1.7;">
-                            Logic-driven Professional with a solid foundation in Computer Engineering and technical operations. Specializing in digital alignment coordination, hardware-software evaluation, and high-volume data system entry. Proven expertise in maintaining real-time system data integrity via Salesforce CRM environments, streamlining team communication, and managing technical pipelines with accuracy and analytical focus.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Professional Deployments / Experience -->
-                <div class="module">
-                    <div class="module-title">📈 [DEPLOYMENT_HISTORY / WORK_EXPERIENCE]</div>
-                    <div class="timeline">
-                        
-                        <!-- Concentrix -->
-                        <div class="timeline-item">
-                            <div class="job-title">Technical Support & Financial Software Specialist</div>
-                            <div class="job-meta">Concentrix (US-Based Financial Software Account) | Jul 2025 - Jan 2026</div>
-                            <ul class="job-details">
-                                <li>Managed high-volume client records within Salesforce CRM, verifying data layout inputs with precision.</li>
-                                <li>Escalated complex hardware-software challenges using Slack and CRM integrations, helping reduce escalation resolution times by 25%.</li>
-                                <li>Authored and implemented 10+ standard operations manuals to optimize internal workflow and system data processes.</li>
-                                <li>Aggregated ticket activity patterns to clear away response delays and optimize client resolution steps.</li>
-                            </ul>
-                        </div>
-
-                        <!-- Freelance -->
-                        <div class="timeline-item">
-                            <div class="job-title">Digital Media & Design Assistant</div>
-                            <div class="job-meta">Freelance / Remote Support | Jun 2022 - Jul 2023</div>
-                            <ul class="job-details">
-                                <li>Managed incoming pipeline communications via email and workspace platforms, enforcing standard brand consistency.</li>
-                                <li>Engineered 20+ dynamic digital and visual assets weekly using Canva to maintain system and asset structure.</li>
-                                <li>Monitored intake workflows under rapid turnaround environments, maintaining standard response timelines under 30 minutes.</li>
-                            </ul>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- Engineering Research & Core Projects -->
-                <div class="module">
-                    <div class="module-title">🚀 [HARDWARE_SOFTWARE_PROJECTS.LOG]</div>
-                    <div class="timeline">
-                        
-                        <!-- Arnis Project -->
-                        <div class="timeline-item">
-                            <div class="project-title">Wearable Sensor-Based Full Gear for Objective Scoring</div>
-                            <div class="project-meta">Hardware/Software Co-Design (Arnis Competition Scoring)</div>
-                            <ul class="job-details">
-                                <li>Co-developed an objective sensor-driven wearable infrastructure using physical sensors embedded into sports combat armor.</li>
-                                <li>Engineered real-time data ingestion models to record impacts accurately, eliminating human bias in point tracking.</li>
-                                <li>Conducted rigorous iterative validation metrics to optimize hardware communication channels under physical shock environments.</li>
-                            </ul>
-                        </div>
-
-                        <!-- Clinic Project -->
-                        <div class="timeline-item">
-                            <div class="project-title">Automated Clinic Appointment and Medical Records System</div>
-                            <div class="project-meta">Full-Stack Database & System Architecture</div>
-                            <ul class="job-details">
-                                <li>Designed and structured a centralized appointment indexing schema to manage dynamic patient booking pipelines smoothly.</li>
-                                <li>Implemented a robust digital medical records tracking matrix ensuring secure data storage, easy retrieval, and data structural consistency.</li>
-                                <li>Optimized query layouts to minimize scheduling index conflicts and improve record updates across active deployment environments.</li>
-                            </ul>
-                        </div>
-
-                    </div>
-                </div>
-
+            <h1>
+                Jenny Ann L. 
+                <span>Maghanoy</span>
+            </h1>
+            
+            <p class="hero-description">
+                Detail-oriented **Computer Engineering Graduate** and experienced **Technical Operations Specialist**. I specialize in bridging complex hardware-software infrastructures and real-time CRM database logic to help engineering teams streamline their workflows and maintain high-precision system data integrity.
+            </p>
+            
+            <div class="action-group">
+                <a href="mailto:jennyannlmaghanoy@gmail.com" class="btn-primary">Hire Me Now</a>
+                <a href="#portfolio" class="btn-secondary">See My Work</a>
+                <a href="#" class="btn-secondary">View My Resume</a>
             </div>
-
-            <!-- RIGHT COLUMN: Tech Stack and System Specs -->
-            <div class="sidebar-column">
-                
-                <!-- Technical Stack Matrix -->
-                <div class="module">
-                    <div class="module-title">🛠️ [TECH_STACK.CFG]</div>
-                    <div class="skills-grid">
-                        
-                        <div class="skills-category">
-                            <h4>CRM & Operations</h4>
-                            <div class="badge-container">
-                                <span class="badge highlight">Salesforce CRM</span>
-                                <span class="badge">Airtable</span>
-                                <span class="badge">Slack API</span>
-                                <span class="badge">SOP Engineering</span>
-                            </div>
-                        </div>
-
-                        <div class="skills-category">
-                            <h4>Engineering & Systems</h4>
-                            <div class="badge-container">
-                                <span class="badge highlight">Hardware Ingestion</span>
-                                <span class="badge">Sensor Integration</span>
-                                <span class="badge">Database Schemas</span>
-                                <span class="badge">System Testing</span>
-                            </div>
-                        </div>
-
-                        <div class="skills-category">
-                            <h4>Digital Media & Productivity</h4>
-                            <div class="badge-container">
-                                <span class="badge">Canva Architecture</span>
-                                <span class="badge">CapCut Engine</span>
-                                <span class="badge">Asset Management</span>
-                                <span class="badge">Google Workspace</span>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- Host System Profile / Specs -->
-                <div class="module">
-                    <div class="module-title">💻 [HOST_HARDWARE.SYS]</div>
-                    
-                    <div class="spec-row">
-                        <span class="spec-label">Primary Node:</span>
-                        <span class="spec-value">Acer Nitro V 15</span>
-                    </div>
-                    <div class="spec-row">
-                        <span class="spec-label">Architecture:</span>
-                        <span class="spec-value">AMD Ryzen Processor</span>
-                    </div>
-                    <div class="spec-row">
-                        <span class="spec-label">Secondary Node:</span>
-                        <span class="spec-value">Dell Latitude Workstation</span>
-                    </div>
-                    <div class="spec-row">
-                        <span class="spec-label">System State:</span>
-                        <span class="spec-value">Online <span class="pulse-dot"></span></span>
-                    </div>
-                </div>
-
-            </div>
-
         </div>
+
+        <!-- VISUAL CONSOLE DISPLAY DISPLAY -->
+        <div class="profile-card">
+            <div class="avatar-container">
+                <div class="avatar-placeholder">
+                    <!-- Drop image file path here -->
+                    [ PHOTO PLACEHOLDER ]
+                </div>
+            </div>
+            
+            <h2>Jenny Ann L. Maghanoy</h2>
+            <div class="profile-subtitle">Computer Engineering Graduate</div>
+            <div class="profile-tags">Tech Ops • Salesforce CRM • Systems Engineering</div>
+            
+            <div class="features-grid">
+                <div class="feature-box">
+                    <span class="feature-icon">⚡</span>
+                    <span class="feature-label">Fast &amp;<br>Reliable</span>
+                </div>
+                <div class="feature-box">
+                    <span class="feature-icon">✨</span>
+                    <span class="feature-label">Detail<br>Obsessed</span>
+                </div>
+                <div class="feature-box">
+                    <span class="feature-icon">🌐</span>
+                    <span class="feature-label">Remote<br>Ready</span>
+                </div>
+            </div>
+            
+            <div class="card-status-footer">
+                <span>Current Status</span>
+                <span class="status-active"><div class="dot-pulse"></div> Ready to Work</span>
+            </div>
+        </div>
+
     </div>
 
 </body>
