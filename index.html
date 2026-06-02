@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jenny Ann L. Maghanoy | Computer Engineering Portfolio</title>
+    <title>Ann L. Maghanoy | Computer Engineering Portfolio</title>
     <!-- Google Fonts for Tech/Terminal Aesthetics -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -152,7 +152,7 @@
         }
 
         .terminal-prompt::before {
-            content: "jann@portfolio:~$ ";
+            content: "ann@portfolio:~$ ";
             color: var(--accent-cyan);
         }
 
@@ -161,6 +161,10 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
+        }
+
+        .skills-category {
+            margin-bottom: 5px;
         }
 
         .skills-category h4 {
@@ -194,7 +198,7 @@
             color: var(--accent-cyan);
         }
 
-        /* Experience Timeline Layout */
+        /* Experience and Project Timeline Layout */
         .timeline {
             display: flex;
             flex-direction: column;
@@ -219,13 +223,13 @@
             border-radius: 50%;
         }
 
-        .job-title {
+        .job-title, .project-title {
             font-size: 1.1rem;
             font-weight: 600;
             color: #FFFFFF;
         }
 
-        .job-meta {
+        .job-meta, .project-meta {
             font-family: 'Fira Code', monospace;
             font-size: 0.8rem;
             color: var(--accent-blue);
@@ -278,7 +282,7 @@
         <!-- Header Console Banner -->
         <header>
             <div class="header-title">
-                <h1>JENNY ANN L. MAGHANOY<span>()</span></h1>
+                <h1>ANN L. MAGHANOY<span>()</span></h1>
             </div>
             <div class="header-tagline">
                 Computer Engineering Graduate & Technical Operations Specialist
@@ -294,7 +298,7 @@
         <!-- Main Workspace split dashboard layout -->
         <div class="dashboard-body">
             
-            <!-- LEFT COLUMN: Profile info and logs -->
+            <!-- LEFT COLUMN: Profile info, Deployments, and Projects -->
             <div class="main-content-column">
                 
                 <!-- Terminal block overview -->
@@ -303,7 +307,7 @@
                     <div class="terminal-block">
                         <p class="terminal-prompt" style="margin-bottom: 10px;">cat summary.txt</p>
                         <p style="color: var(--text-primary); line-height: 1.7;">
-                            Logic-driven Professional with a background in Computer Engineering and technical operations, specializing in high-volume Salesforce CRM management and digital coordination. Reduced average technical resolution times by 25% through proactive team communication via Slack and the development of 10+ Standard Operating Procedures (SOPs). Known for analytical problem-solving, data integrity, and seamless execution of detail-oriented tasks.
+                            Logic-driven Professional with a solid foundation in Computer Engineering and technical operations. Specializing in digital alignment coordination, hardware-software evaluation, and high-volume data system entry. Proven expertise in maintaining real-time system data integrity via Salesforce CRM environments, streamlining team communication, and managing technical pipelines with accuracy and analytical focus.
                         </p>
                     </div>
                 </div>
@@ -316,12 +320,12 @@
                         <!-- Concentrix -->
                         <div class="timeline-item">
                             <div class="job-title">Technical Support & Financial Software Specialist</div>
-                            <div class="job-meta">Concentrix (US-Based Financial Software) | Jul 2025 - Jan 2026</div>
+                            <div class="job-meta">Concentrix (US-Based Financial Software Account) | Jul 2025 - Jan 2026</div>
                             <ul class="job-details">
-                                <li>Managed high-volume client records within Salesforce, ensuring real-time data integrity and 100% accuracy in case logs.</li>
-                                <li>Escalated complex technical challenges using Slack and Salesforce integrations, cutting high-priority resolution times by 25%.</li>
-                                <li>Designed and deployed 10+ internal Standard Operating Procedures (SOPs) that reduced client troubleshooting cycles by 20 minutes per ticket.</li>
-                                <li>Aggregated patterns via CRM query tools to write 3 new troubleshooting playbooks.</li>
+                                <li>Managed high-volume client records within Salesforce CRM, verifying data layout inputs with precision.</li>
+                                <li>Escalated complex hardware-software challenges using Slack and CRM integrations, helping reduce escalation resolution times by 25%.</li>
+                                <li>Authored and implemented 10+ standard operations manuals to optimize internal workflow and system data processes.</li>
+                                <li>Aggregated ticket activity patterns to clear away response delays and optimize client resolution steps.</li>
                             </ul>
                         </div>
 
@@ -330,9 +334,39 @@
                             <div class="job-title">Digital Media & Design Assistant</div>
                             <div class="job-meta">Freelance / Remote Support | Jun 2022 - Jul 2023</div>
                             <ul class="job-details">
-                                <li>Managed incoming pipeline communications via email and Instagram, standardizing a clean brand identity.</li>
-                                <li>Engineered 20+ dynamic marketing visual assets on a weekly basis using Canva to preserve asset alignment.</li>
-                                <li>Triaged client inbound lines under rapid execution matrixes, trimming out response delays down below 30 minutes.</li>
+                                <li>Managed incoming pipeline communications via email and workspace platforms, enforcing standard brand consistency.</li>
+                                <li>Engineered 20+ dynamic digital and visual assets weekly using Canva to maintain system and asset structure.</li>
+                                <li>Monitored intake workflows under rapid turnaround environments, maintaining standard response timelines under 30 minutes.</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Engineering Research & Core Projects -->
+                <div class="module">
+                    <div class="module-title">🚀 [HARDWARE_SOFTWARE_PROJECTS.LOG]</div>
+                    <div class="timeline">
+                        
+                        <!-- Arnis Project -->
+                        <div class="timeline-item">
+                            <div class="project-title">Wearable Sensor-Based Full Gear for Objective Scoring</div>
+                            <div class="project-meta">Hardware/Software Co-Design (Arnis Competition Scoring)</div>
+                            <ul class="job-details">
+                                <li>Co-developed an objective sensor-driven wearable infrastructure using physical sensors embedded into sports combat armor.</li>
+                                <li>Engineered real-time data ingestion models to record impacts accurately, eliminating human bias in point tracking.</li>
+                                <li>Conducted rigorous iterative validation metrics to optimize hardware communication channels under physical shock environments.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Clinic Project -->
+                        <div class="timeline-item">
+                            <div class="project-title">Automated Clinic Appointment and Medical Records System</div>
+                            <div class="project-meta">Full-Stack Database & System Architecture</div>
+                            <ul class="job-details">
+                                <li>Designed and structured a centralized appointment indexing schema to manage dynamic patient booking pipelines smoothly.</li>
+                                <li>Implemented a robust digital medical records tracking matrix ensuring secure data storage, easy retrieval, and data structural consistency.</li>
+                                <li>Optimized query layouts to minimize scheduling index conflicts and improve record updates across active deployment environments.</li>
                             </ul>
                         </div>
 
@@ -341,7 +375,7 @@
 
             </div>
 
-            <!-- RIGHT COLUMN: Hardware and Modules -->
+            <!-- RIGHT COLUMN: Tech Stack and System Specs -->
             <div class="sidebar-column">
                 
                 <!-- Technical Stack Matrix -->
@@ -350,96 +384,63 @@
                     <div class="skills-grid">
                         
                         <div class="skills-category">
-                            <h4>Core Strengths</h4>
+                            <h4>CRM & Operations</h4>
                             <div class="badge-container">
-                                <span class="badge highlight">Logic-Based Tasks</span>
-                                <span class="badge highlight">Data Integrity</span>
-                                <span class="badge">Detail-Oriented Tasks</span>
+                                <span class="badge highlight">Salesforce CRM</span>
+                                <span class="badge">Airtable</span>
+                                <span class="badge">Slack API</span>
                                 <span class="badge">SOP Engineering</span>
                             </div>
                         </div>
 
                         <div class="skills-category">
-                            <h4>CRM & Operations</h4>
+                            <h4>Engineering & Systems</h4>
                             <div class="badge-container">
-                                <span class="badge highlight">Salesforce CRM</span>
-                                <span class="badge">Airtable</span>
-                                <span class="badge">Notion</span>
-                                <span class="badge">Slack</span>
-                                <span class="badge">Email Triage</span>
+                                <span class="badge highlight">Hardware Ingestion</span>
+                                <span class="badge">Sensor Integration</span>
+                                <span class="badge">Database Schemas</span>
+                                <span class="badge">System Testing</span>
                             </div>
                         </div>
 
                         <div class="skills-category">
-                            <h4>Automation & Web</h4>
+                            <h4>Digital Media & Productivity</h4>
                             <div class="badge-container">
-                                <span class="badge">Basic Web Dev</span>
-                                <span class="badge">Apps Script</span>
-                                <span class="badge">Zapier</span>
-                                <span class="badge">Make.com</span>
-                                <span class="badge">SEO Schema</span>
-                            </div>
-                        </div>
-
-                        <div class="skills-category">
-                            <h4>AI & Media Tools</h4>
-                            <div class="badge-container">
-                                <span class="badge">ChatGPT</span>
-                                <span class="badge">Gemini</span>
-                                <span class="badge">Canva</span>
-                                <span class="badge">CapCut</span>
+                                <span class="badge">Canva Architecture</span>
+                                <span class="badge">CapCut Engine</span>
+                                <span class="badge">Asset Management</span>
+                                <span class="badge">Google Workspace</span>
                             </div>
                         </div>
 
                     </div>
                 </div>
 
-                <!-- Hardware Specifications readout panel -->
+                <!-- Host System Profile / Specs -->
                 <div class="module">
-                    <div class="module-title">🖥️ [HARDWARE_SPECS.SYS]</div>
+                    <div class="module-title">💻 [HOST_HARDWARE.SYS]</div>
                     
                     <div class="spec-row">
-                        <span class="spec-label">Primary Rig</span>
+                        <span class="spec-label">Primary Node:</span>
                         <span class="spec-value">Acer Nitro V 15</span>
                     </div>
                     <div class="spec-row">
-                        <span class="spec-label">CPU</span>
-                        <span class="spec-value">AMD Ryzen 5 7535HS</span>
+                        <span class="spec-label">Architecture:</span>
+                        <span class="spec-value">AMD Ryzen Processor</span>
                     </div>
                     <div class="spec-row">
-                        <span class="spec-label">Memory</span>
-                        <span class="spec-value">16GB DDR5 RAM</span>
+                        <span class="spec-label">Secondary Node:</span>
+                        <span class="spec-value">Dell Latitude Workstation</span>
                     </div>
                     <div class="spec-row">
-                        <span class="spec-label">GPU</span>
-                        <span class="spec-value">NVIDIA RTX 2050/3050</span>
+                        <span class="spec-label">System State:</span>
+                        <span class="spec-value">Online <span class="pulse-dot"></span></span>
                     </div>
-                    <div class="spec-row">
-                        <span class="spec-label">Backup Rig</span>
-                        <span class="spec-value">Acer Laptop (Core i5 8th Gen)</span>
-                    </div>
-                    <div class="spec-row">
-                        <span class="spec-label">Network Link</span>
-                        <span class="spec-value">Smart 5G Mobile Hotspot</span>
-                    </div>
-                    <div class="spec-row">
-                        <span class="spec-label">Power Backup</span>
-                        <span class="spec-value">Dedicated Workspace Status <span class="pulse-dot"></span></span>
-                    </div>
-                </div>
-
-                <!-- Education Node Module -->
-                <div class="module">
-                    <div class="module-title">🎓 [ACADEMIC_CREDENTIAL]</div>
-                    <div style="font-size: 0.95rem; font-weight: 600; color: #FFFFFF;">BS in Computer Engineering</div>
-                    <div style="font-size: 0.85rem; color: var(--accent-blue); font-family: 'Fira Code', monospace; margin-bottom: 5px;">University of Cebu</div>
-                    <div style="font-size: 0.85rem; color: var(--text-secondary);">Cebu City, Philippines</div>
                 </div>
 
             </div>
 
         </div>
-
     </div>
 
 </body>
