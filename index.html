@@ -10,14 +10,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #0A0A0A;
-            --bg-card: #111112;
-            --accent-gold: #D4AF37; /* Premium Gold color from image_9c4a04.png */
-            --accent-gold-hover: #F3E5AB;
-            --accent-green: #00FF66; /* Vibrant availability green */
-            --text-white: #FFFFFF;
-            --text-gray: #999999;
-            --border-dark: #222224;
+            /* Warm, Sophisticated Urban Coffee Shop Palette matched to image_e2e0a3.jpg */
+            --bg-main: #FAF8F5;          /* Warm cream backdrop */
+            --bg-card: #FFFFFF;          /* Crisp white cards */
+            --text-dark: #2B231D;        /* Deep espresso brown instead of harsh black */
+            --text-muted: #6E655F;       /* Warm gray-brown for description text */
+            --accent-cream: #F4EFE6;     /* Soft latte tint for badges and containers */
+            --accent-wood: #8B5E3C;      /* Rich wood brown for deep elements */
+            --accent-gold: #C5A059;      /* Refined gold accent */
+            --accent-green: #3B7A57;     /* Organic, muted green for availability */
+            
+            --border-light: #EBE5DA;
             --font-serif: 'Playfair Display', serif;
             --font-sans: 'Montserrat', sans-serif;
         }
@@ -29,13 +32,8 @@
         }
 
         body {
-            background-color: var(--bg-dark);
-            /* Subtle background grid pattern mimicking image_9c4a04.png */
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-            background-size: 40px 40px;
-            color: var(--text-white);
+            background-color: var(--bg-main);
+            color: var(--text-dark);
             font-family: var(--font-sans);
             line-height: 1.6;
             overflow-x: hidden;
@@ -46,10 +44,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 25px 6%;
-            border-bottom: 1px solid var(--border-dark);
-            background-color: rgba(10, 10, 10, 0.85);
-            backdrop-filter: blur(10px);
+            padding: 20px 6%;
+            border-bottom: 1px solid var(--border-light);
+            background-color: rgba(250, 248, 245, 0.85);
+            backdrop-filter: blur(12px);
             position: fixed;
             top: 0;
             width: 100%;
@@ -59,13 +57,15 @@
         .logo {
             font-family: var(--font-serif);
             font-size: 1.5rem;
-            font-weight: 400;
-            letter-spacing: 1px;
+            font-weight: 600;
+            color: var(--text-dark);
+            letter-spacing: 0.5px;
         }
 
         .logo span {
-            color: var(--accent-gold);
+            color: var(--accent-wood);
             font-style: italic;
+            font-weight: 400;
         }
 
         .nav-links {
@@ -75,7 +75,7 @@
         }
 
         .nav-links a {
-            color: var(--text-gray);
+            color: var(--text-muted);
             text-decoration: none;
             font-size: 0.8rem;
             text-transform: uppercase;
@@ -85,87 +85,96 @@
         }
 
         .nav-links a:hover {
-            color: var(--accent-gold);
+            color: var(--accent-wood);
         }
 
         .btn-hire-nav {
-            border: 1px solid var(--accent-gold);
-            color: var(--accent-gold);
+            border: 1px solid var(--accent-wood);
+            color: var(--accent-wood);
             padding: 10px 22px;
             text-transform: uppercase;
             font-size: 0.8rem;
             letter-spacing: 2px;
+            font-weight: 600;
             text-decoration: none;
             background: transparent;
             transition: all 0.3s ease;
         }
 
         .btn-hire-nav:hover {
-            background-color: var(--accent-gold);
-            color: var(--bg-dark);
+            background-color: var(--accent-wood);
+            color: var(--bg-main);
         }
 
         /* --- HERO SPLIT CONTAINER --- */
         .hero-container {
-            max-width: 1300px;
-            margin: 140px auto 60px auto;
-            padding: 0 4%;
+            max-width: 1400px;
+            margin: 90px auto 0 auto;
+            min-height: calc(100vh - 90px);
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 50px;
+            grid-template-columns: 1.1fr 0.9fr;
             align-items: center;
         }
 
         @media (max-width: 968px) {
             .hero-container {
                 grid-template-columns: 1fr;
-                margin-top: 100px;
-                gap: 40px;
+                margin-top: 80px;
+                padding-bottom: 50px;
             }
         }
 
         /* --- LEFT COLUMN: INTRO --- */
         .hero-intro {
+            padding: 60px 8% 60px 10%;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
         }
 
+        @media (max-width: 968px) {
+            .hero-intro {
+                padding: 40px 6%;
+            }
+        }
+
         .badge-availability {
-            background-color: rgba(34, 34, 36, 0.6);
-            border: 1px solid var(--border-dark);
-            padding: 6px 16px;
+            background-color: var(--accent-cream);
+            border: 1px solid var(--border-light);
+            padding: 8px 18px;
             border-radius: 50px;
             font-size: 0.75rem;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             margin-bottom: 30px;
-            color: #BBBBBB;
+            color: var(--text-muted);
+            font-weight: 600;
         }
 
         .dot-pulse {
-            width: 7px;
-            height: 7px;
+            width: 8px;
+            height: 8px;
             background-color: var(--accent-green);
             border-radius: 50%;
-            box-shadow: 0 0 8px var(--accent-green);
+            display: inline-block;
         }
 
         .hero-intro h1 {
             font-family: var(--font-serif);
-            font-size: 4rem;
-            line-height: 1.1;
+            font-size: 3.8rem;
+            line-height: 1.15;
             font-weight: 400;
             margin-bottom: 25px;
+            color: var(--text-dark);
         }
 
         .hero-intro h1 span {
-            color: var(--accent-gold);
+            color: var(--accent-wood);
             display: block;
-            font-weight: 400;
+            font-style: italic;
         }
 
         @media (max-width: 600px) {
@@ -173,21 +182,11 @@
         }
 
         .hero-description {
-            color: var(--text-gray);
+            color: var(--text-muted);
             font-size: 1.05rem;
             max-width: 580px;
-            margin-bottom: 35px;
+            margin-bottom: 40px;
             line-height: 1.7;
-        }
-
-        .hero-description strong {
-            color: var(--text-white);
-            font-weight: 600;
-        }
-
-        .hero-description span.highlight-gold {
-            color: var(--accent-gold);
-            font-weight: 600;
         }
 
         /* Action Buttons Row */
@@ -199,193 +198,97 @@
         }
 
         .btn-primary {
-            background-color: var(--accent-gold);
-            color: var(--bg-dark);
+            background-color: var(--text-dark);
+            color: #FFFFFF;
             padding: 16px 35px;
             font-weight: 600;
             text-transform: uppercase;
             font-size: 0.85rem;
             letter-spacing: 2px;
             text-decoration: none;
-            border-radius: 4px;
-            border: 1px solid var(--accent-gold);
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 93% 100%, 0 100%); /* Elegant slight cut corner */
-            transition: background-color 0.3s ease;
+            border: 1px solid var(--text-dark);
+            transition: all 0.3s ease;
         }
 
         .btn-primary:hover {
-            background-color: var(--accent-gold-hover);
+            background-color: var(--accent-wood);
+            border-color: var(--accent-wood);
         }
 
         .btn-secondary {
             background-color: transparent;
-            color: var(--text-white);
-            border: 1px solid var(--border-dark);
+            color: var(--text-dark);
+            border: 1px solid var(--text-dark);
             padding: 16px 35px;
-            font-weight: 500;
+            font-weight: 600;
             text-transform: uppercase;
             font-size: 0.85rem;
             letter-spacing: 2px;
             text-decoration: none;
-            border-radius: 4px;
-            transition: border-color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .btn-secondary:hover {
-            border-color: var(--text-white);
+            background-color: var(--accent-cream);
         }
 
-        /* --- RIGHT COLUMN: FLOATING CONSOLE CARD --- */
-        .profile-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-dark);
-            border-radius: 4px;
-            padding: 40px 30px;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-        }
-
-        /* Thin subtle gold top border highlight */
-        .profile-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 10%;
-            width: 80%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
-        }
-
-        .avatar-container {
-            width: 140px;
-            height: 140px;
-            margin: 0 auto 25px auto;
-            border-radius: 50%;
-            border: 2px solid var(--accent-gold);
-            padding: 6px;
-            background-color: var(--bg-dark);
-        }
-
-        .avatar-placeholder {
+        /* --- RIGHT COLUMN: COFFEE SHOP HERO IMAGE MAPPED TO image_e2e0a3.jpg --- */
+        .hero-image-frame {
             width: 100%;
             height: 100%;
-            border-radius: 50%;
-            background: #222; /* Replace background or drop image source directly here */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            color: var(--text-gray);
+            min-height: calc(100vh - 90px);
+            background-image: url('image_e2e0a3.jpg');
+            background-size: cover;
+            background-position: center center;
+            border-left: 1px solid var(--border-light);
         }
 
-        .profile-card h2 {
-            font-family: var(--font-serif);
-            font-size: 1.8rem;
-            font-weight: 400;
-            margin-bottom: 8px;
-            letter-spacing: 0.5px;
-        }
-
-        .profile-subtitle {
-            font-size: 0.75rem;
-            color: var(--text-gray);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 6px;
-            font-weight: 500;
-        }
-
-        .profile-tags {
-            font-size: 0.7rem;
-            color: var(--accent-gold);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 30px;
-        }
-
-        /* Features Matrix Blocks */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-bottom: 35px;
-        }
-
-        .feature-box {
-            background-color: rgba(10, 10, 10, 0.5);
-            border: 1px solid var(--border-dark);
-            padding: 15px 5px;
-            border-radius: 4px;
-        }
-
-        .feature-icon {
-            font-size: 1.2rem;
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        .feature-label {
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-gray);
-            font-weight: 600;
-        }
-
-        .card-status-footer {
-            border-top: 1px solid var(--border-dark);
-            padding-top: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--text-gray);
-        }
-
-        .status-active {
-            color: var(--accent-green);
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 6px;
+        @media (max-width: 968px) {
+            .hero-image-frame {
+                min-height: 450px;
+                border-left: none;
+                border-top: 1px solid var(--border-light);
+            }
         }
 
         /* --- FLOATING WHATSAPP BUTTON --- */
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
-            left: 30px;
+            right: 30px;
             background-color: #25D366;
             color: white;
-            padding: 12px 20px;
-            border-radius: 4px;
+            padding: 14px 24px;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             font-size: 0.85rem;
+            letter-spacing: 1px;
             display: flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
             z-index: 999;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-3px);
         }
     </style>
 </head>
 <body>
 
-    <!-- Floating Messenger Element -->
+    <!-- Floating Contact Element moved to lower-right for modern layouts -->
     <a href="https://wa.me/639616381418" class="whatsapp-float" target="_blank">
-        🟢 WhatsApp
+        <span class="dot-pulse" style="background-color: white;"></span> WhatsApp Me
     </a>
 
-    <!-- Navigation Header Matrix -->
+    <!-- Navigation Header -->
     <nav>
         <div class="logo">Ann <span>Maghanoy</span></div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
-            <li><a href="#services">Services</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
@@ -397,61 +300,29 @@
     <!-- Interactive Hero Workspace -->
     <div class="hero-container" id="home">
         
-        <!-- INTRO DUCT: CORE ATTRIBUTES -->
+        <!-- LEFT COLUMN: ARCHITECTURAL CONTENT -->
         <div class="hero-intro">
             <div class="badge-availability">
-                <div class="dot-pulse"></div> Available For Hire — Philippines
+                <div class="dot-pulse"></div> Available For Hire — Cebu City
             </div>
             
             <h1>
-                Ann L. 
-                <span>Maghanoy</span>
+                Hi, I'm
+                <span>Jenny Ann</span>
             </h1>
             
             <p class="hero-description">
-                Detail-oriented **Computer Engineering Graduate** and experienced **Technical Operations Specialist**. I specialize in bridging complex hardware-software infrastructures and real-time CRM database logic to help engineering teams streamline their workflows and maintain high-precision system data integrity.
+                I leverage my Computer Engineering background to optimize digital workflows, manage data integrity, and design engaging brand assets. Dedicated to reducing resolution times and executing detail-oriented tasks seamlessly.
             </p>
             
             <div class="action-group">
-                <a href="mailto:jennyannlmaghanoy@gmail.com" class="btn-primary">Hire Me Now</a>
-                <a href="#portfolio" class="btn-secondary">See My Work</a>
-                <a href="#" class="btn-secondary">View My Resume</a>
+                <a href="#portfolio" class="btn-primary">Explore My Services</a>
+                <a href="mailto:jennyannlmaghanoy@gmail.com" class="btn-secondary">Get In Touch</a>
             </div>
         </div>
 
-        <!-- VISUAL CONSOLE DISPLAY DISPLAY -->
-        <div class="profile-card">
-            <div class="avatar-container">
-                <div class="avatar-placeholder">
-                    <!-- Drop image file path here -->
-                    [ PHOTO PLACEHOLDER ]
-                </div>
-            </div>
-            
-            <h2>Ann L. Maghanoy</h2>
-            <div class="profile-subtitle">Computer Engineering Graduate</div>
-            <div class="profile-tags">Tech Ops • Salesforce CRM • Systems Engineering</div>
-            
-            <div class="features-grid">
-                <div class="feature-box">
-                    <span class="feature-icon">⚡</span>
-                    <span class="feature-label">Fast &amp;<br>Reliable</span>
-                </div>
-                <div class="feature-box">
-                    <span class="feature-icon">✨</span>
-                    <span class="feature-label">Detail<br>Obsessed</span>
-                </div>
-                <div class="feature-box">
-                    <span class="feature-icon">🌐</span>
-                    <span class="feature-label">Remote<br>Ready</span>
-                </div>
-            </div>
-            
-            <div class="card-status-footer">
-                <span>Current Status</span>
-                <span class="status-active"><div class="dot-pulse"></div> Ready to Work</span>
-            </div>
-        </div>
+        <!-- RIGHT COLUMN: FULL ASSET DISPLAY FRAME -->
+        <div class="hero-image-frame"></div>
 
     </div>
 
