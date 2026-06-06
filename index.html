@@ -7,7 +7,7 @@
     <!-- Premium Fonts: Playfair Display for Elegance, Montserrat for Clean Sans-Serif -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght=300;400;500;600;700&family=Playfair+Display:ital,wght=0,400;0,600;1,400&family=Fira+Code:wght=400;500&display=swap" rel="stylesheet">
     <style>
         :root {
             /* Warm, Sophisticated Urban Coffee Shop Palette */
@@ -29,6 +29,11 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+
+        /* Added smooth scrolling behavior when clicking navigation links */
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -237,8 +242,7 @@
             width: 100%;
             height: 100%;
             min-height: calc(100vh - 90px);
-            /* Updated from image_e2e0a3.jpg to point directly to your profile picture */
-            background-image: url('profile (2).jpg');
+            background-image: url('Profile1.png');
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
@@ -277,11 +281,18 @@
         .whatsapp-float:hover {
             transform: translateY(-3px);
         }
+
+        /* Placeholder styles for future content anchors to enable smooth scrolling links */
+        section {
+            padding: 100px 8%;
+            min-height: 60vh;
+            border-top: 1px solid var(--border-light);
+        }
     </style>
 </head>
 <body>
 
-    <!-- Floating Contact Element moved to lower-right for modern layouts -->
+    <!-- Floating Contact Element with your updated international WhatsApp link -->
     <a href="https://wa.me/639616381418" class="whatsapp-float" target="_blank">
         <span class="dot-pulse" style="background-color: white;"></span> WhatsApp Me
     </a>
@@ -310,7 +321,7 @@
             
             <h1>
                 Hi, I'm
-                <span>Jenny Ann</span>
+                <span>Jenny Ann Maghanoy</span>
             </h1>
             
             <p class="hero-description">
@@ -319,7 +330,8 @@
             
             <div class="action-group">
                 <a href="#portfolio" class="btn-primary">Explore My Services</a>
-                <a href="mailto:jennyannlmaghanoy@gmail.com" class="btn-secondary">Get In Touch</a>
+                <!-- Updated "Get in touch" button to instantly trigger an email template -->
+                <a href="mailto:jennyannlmaghanoy@gmail.com?subject=Project%20Inquiry" class="btn-secondary">Get In Touch</a>
             </div>
         </div>
 
@@ -327,6 +339,12 @@
         <div class="hero-image-frame"></div>
 
     </div>
+
+    <!-- Hidden sectional anchors to keep navigation structural links completely stable -->
+    <div id="about"></div>
+    <div id="skills"></div>
+    <div id="portfolio"></div>
+    <div id="contact"></div>
 
 </body>
 </html>
