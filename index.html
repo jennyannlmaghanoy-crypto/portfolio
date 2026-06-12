@@ -353,6 +353,100 @@
                 gap: 40px;
             }
         }
+        /* --- SLIDE 3: ABOUT SECTION STYLES --- */
+        .about-section {
+            padding: 120px 8%;
+            background-color: var(--bg-main);
+            border-top: 1px solid var(--border-light);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr; /* Optimized layout tracking balances */
+            gap: 80px;
+            align-items: start;
+        }
+
+        @media (max-width: 968px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+        }
+
+        .about-text {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .about-quote {
+            margin-top: 35px;
+            padding-left: 20px;
+            border-left: 3px solid var(--accent-wood);
+        }
+
+        .about-quote blockquote {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1.15rem;
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        .about-focus-box {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-light);
+            padding: 45px 40px;
+            box-shadow: 0 4px 15px rgba(43, 35, 29, 0.01);
+        }
+
+        .about-focus-box h3 {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-dark);
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 15px;
+        }
+
+        .focus-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 25px; /* Creates isolated structural spacing to clear the image overlap */
+            margin-bottom: 35px;
+        }
+
+        .focus-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .focus-number {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1.8rem;
+            color: var(--accent-wood);
+            line-height: 1;
+            min-width: 45px; /* Sets a solid blueprint floor so text cannot squeeze it out */
+        }
+
+        .focus-content h4 {
+            font-family: var(--font-sans);
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .focus-content p {
+            font-family: var(--font-sans);
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
 
         .about-text {
             color: var(--text-muted);
@@ -603,54 +697,56 @@
 
     <!-- Remaining sectional anchors for future slides -->
     <!-- SLIDE 3: ABOUT SECTION -->
-    <!-- SLIDE 3: ABOUT SECTION -->
     <section id="about" class="about-section">
-        <div class="section-container about-grid">
-            <!-- Left Side: Professional Story -->
-            <div class="about-content">
-                <p class="section-subtitle">// The Professional Journey</p>
-                <h2 class="section-title">Engineering Logic <span>Meets Virtual Operations</span></h2>
-                <p class="about-text">
-                    I am a Computer Engineering graduate who uses a logical approach to handle daily virtual assistant and business support challenges. Instead of just rushing through a checklist to finish a high volume of tasks, I prefer to slow down and analyze how data flows, how tools connect, and where small adjustments can prevent future headaches.
-                </p>
-                <p class="about-text">
-                    My background bridges the gap between customer support experience and technical troubleshooting. I am constantly striving to improve my skills and learn new tools because I genuinely care about the quality of what I deliver. Whether organizing data or supporting a team, my goal is always to leave things a little more organized and efficient than I found them.
-                </p>
-                <div class="about-quote">
-                    <blockquote>"I value the quality of my work over the quantity of tasks completed—because building a steady, reliable process saves more time in the long run."</blockquote>
+    <div class="section-container about-grid">
+        <!-- Left Side: Professional Story -->
+        <div class="about-content">
+            <p class="section-subtitle">// The Professional Journey</p>
+            <h2 class="section-title">Engineering Logic <span>Meets Virtual Operations</span></h2>
+            <p class="about-text">
+                I am a Computer Engineering graduate who uses a logical approach to handle daily virtual assistant and business support challenges. Instead of just rushing through a checklist to finish a high volume of tasks, I prefer to slow down and analyze how data flows, how tools connect, and where small adjustments can prevent future headaches.
+            </p>
+            <p class="about-text">
+                My background bridges the gap between customer support experience and technical troubleshooting. I am constantly striving to improve my skills and learn new tools because I genuinely care about the quality of what I deliver. Whether organizing data or supporting a team, my goal is always to leave things a little more organized and efficient than I found them.
+            </p>
+            <div class="about-quote">
+                <blockquote>"I value the quality of my work over the quantity of tasks completed because building a steady, reliable process saves more time in the long run."</blockquote>
+            </div>
+        </div>
+        
+        <!-- Right Side: Impact Focus Matrix -->
+        <div class="about-focus-box">
+            <h3>My Work Philosophy</h3>
+            
+            <!-- Focus Item 01 -->
+            <div class="focus-item">
+                <div class="focus-number">01</div>
+                <div class="focus-content">
+                    <h4>Quality Over Quantity</h4>
+                    <p>I focus on meticulous execution to ensure results are accurate, structural, and dependable the first time without needing constant revisions.</p>
                 </div>
             </div>
             
-            <!-- Right Side: Impact Focus Matrix -->
-            <div class="about-focus-box">
-                <h3>My Work Philosophy</h3>
-                
-                <div class="focus-item">
-                    <span class="focus-number">Quality</span>
-                    <div>
-                        <h4>Over Quantity</h4>
-                        <p>I believe rushing through tasks leads to errors. I focus on meticulous execution to ensure results are accurate and dependable the first time.</p>
-                    </div>
+            <!-- Focus Item 02 -->
+            <div class="focus-item">
+                <div class="focus-number">02</div>
+                <div class="focus-content">
+                    <h4>Continuous Learning</h4>
+                    <p>I dedicate deep hours to mastering new digital platforms and workflows, expanding my capabilities to bring maximum value to dynamic teams.</p>
                 </div>
-                
-                <div class="focus-item">
-                    <span class="focus-number">Growth</span>
-                    <div>
-                        <h4>Continuous Learning</h4>
-                        <p>Technology changes fast. I dedicate time to mastering new tools, adapting to specific workflows, and expanding my capabilities to bring more value to the team.</p>
-                    </div>
-                </div>
-                
-                <div class="focus-item">
-                    <span class="focus-number">SOPs</span>
-                    <div>
-                        <h4>Clear Documentation</h4>
-                        <p>I like creating simple, clear guides for complex tasks so that anyone on the team can follow them and achieve the exact same standard of quality.</p>
-                    </div>
+            </div>
+            
+            <!-- Focus Item 03 -->
+            <div class="focus-item">
+                <div class="focus-number">03</div>
+                <div class="focus-content">
+                    <h4>Clear Documentation</h4>
+                    <p>I simplify complex operations into clear, step-by-step procedural guides so tasks are performed uniformly to standard every time.</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- SLIDE 4: SKILLS MATRIX SECTION -->
     <section id="skills" class="skills-section">
